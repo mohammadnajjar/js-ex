@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+	<!-- style included -->
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="css/style.css">
+	<!-- end style included -->
+	
+	<!-- script included  -->
+		<script src="js/jquery-3.1.1.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.js"></script>
+	<!-- end script include -->
+	
+</head>
+<body>
+	<div class="container">
+		<!-- <div class="row">
+			<div class="col-6">
+				<input class="input-group" type="text" placeholder="First Name...">
+			</div>
+			<div class="col-6">
+				<input class="input-group" type="text" placeholder="Last Name...">
+			</div>
+		</div>
+		<div class="row">
+			<input class="input-group" type="date">
+		</div>
+		<div class="row">
+			<select id="" class="input-group">
+				<option value="1">Class A</option>
+				<option value="2">Class B</option>
+				<option value="3">Class C</option>
+			</select>
+		</div> -->
+		<div class="form-group">
+			<label>First Name</label>
+			<input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputPassword1">Password</label>
+			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputPassword1">Age</label>
+			<input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		  </div>
+		  <div class="form-group">
+			<label for="exampleFormControlSelect2">Example multiple select</label>
+			<select class="form-control" id="exampleFormControlSelect2">
+			  <option value="1">Class A</option>
+			  <option value="2">Class B</option>
+			  <option value="3">Class C</option>
+			</select>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+
+	<h1>Student Table</h1>
+	<div class="container">
+
+		<table class="table">
+			<thead>
+			  <tr>
+				<th scope="col">#</th>
+				<th scope="col">Student Name</th>
+				<th scope="col">Age</th>
+				<th scope="col">Studnet Class</th>
+				<th scope="col">Options</th>
+			  </tr>
+			</thead>
+			<tbody id="tableBody">
+			  
+			</tbody>
+		  </table>
+	</div>
+
+
+	<script>
+		var students = {
+			'std1':{
+				'firstName' : 'Ahmed',
+				'lastName' : 'Ahmed',
+				'age' : '1/1/1993',
+				'studentClass' : 1
+			},
+			'std2':{
+				'firstName' : 'Mohammad',
+				'lastName' : 'Mohammad',
+				'age' : '1/1/1994',
+				'studentClass' : 2
+			},
+			'std3':{
+				'firstName' : 'Mahmoud',
+				'lastName' : 'Mahmoud',
+				'age' : '1/1/1995',
+				'studentClass' : 3
+			},
+			'std4':{
+				'firstName' : 'Dima',
+				'lastName' : 'Dima',
+				'age' : '1/1/1996',
+				'studentClass' : 2
+			},
+			'std5':{
+				'firstName' : 'Abd',
+				'lastName' : 'Abd',
+				'age' : '1/1/1996',
+				'studentClass' : 3
+			}
+
+		};
+
+		var studentRows = '';
+		console.log(students.std1.firstName);
+		var count =0;
+		for (const student in students) {
+			count++;
+			console.log(count);
+			console.log(student.std1);
+
+			studentRows += "<tr><td>"+count+"</td><td>"+ student.std1 + " " + student.std1 +"</td><td>"+student.std1+"</td><td>"+student.std1+"</td><td><a class='fa fa-edit'>U</a><a class='fa fa-trash'>D</a></td></tr>";
+			
+		}
+		$('#tableBody').append(studentRows);
+		console.log(studentRows);
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="jquery-3.1.1.min.js"></script> 
+<script>
+$('document').ready(function animation(){
+    var options = { duration: 800 };
+    $('.square-small')
+    .animate({left: 280, top: 280}, options)
+    .animate({left: 0}, options)
+    .animate({left: 280, top: 0}, options)
+    .animate({left: 0},
+    $.extend(true,{}, options, {
+    complete: function() {
+		animation();
+    }
+    })        
+    );
+});
+</script>
+<style>
+.square-big
+{
+   width: 300px;
+   height: 300px;
+   position: relative;
+   border: 1px solid black;
+   margin: 20px 0;
+}
+
+.square-small
+{
+   width: 20px;
+   height: 20px;
+   position: absolute;
+   background-color: red;
+}
+</style>
+</head>
+<body>
+<p>Creating infinite animations with jQuery's animate()</p>
+<div class="square-big">
+    <div class="square-small"></div>
+</div>
+</body>
+</html>

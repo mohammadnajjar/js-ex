@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<select id="accountTypeId" onchange="accountType(this)">
+		<option value="1">Teacher</option>
+		<option selected value="2">Student</option>
+	</select>
+
+	<form id="teacherId" style="display:none;">
+		<input type="text" placeholder="Teacher Name">
+		<select>
+			<option value="1">Science</option>
+			<option value="2">Math</option>
+		</select>
+		<input type="date">
+	</form>
+
+	<form id="studentId">
+		<input type="text" placeholder="Student Name">
+		<select>
+			<option value="1">First</option>
+			<option value="2">Seconde</option>
+		</select>
+		<input type="date">
+	</form>
+
+	<button onclick="getOp(this)">+</button>
+	<button onclick="getOp(this)">-</button>
+	<button onclick="getOp(this)">*</button>
+	<button onclick="getOp(this)">/</button>
+
+	<script>
+		function getOp(operation){
+			alert(operation.innerHTML);
+		}
+
+		function accountType(objElement){
+			var accountType = objElement.value;
+			if(accountType == 2){
+				document.getElementById('teacherId').style.display = 'none';
+				document.getElementById('studentId').style.display = 'block';
+			}else{
+				document.getElementById('teacherId').style.display = 'block';
+				document.getElementById('studentId').style.display = 'none';
+			}
+		}
+	</script>
+</body>
+</html>

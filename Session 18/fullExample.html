@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Full Example</title>
+    <script src="jquery-3.1.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // change form
+            $('#accountyTypeId').change(function () {
+                var accountTypeValue = $(this).val();
+                if (accountTypeValue == 1) {
+                    $('#studentFormId').show();
+                    $('#teacherFormId').hide();
+                } else {
+                    $('#studentFormId').hide();
+                    $('#teacherFormId').show();
+                }
+            });
+            // save form
+            $('#savePersonBtnId').click(function () {
+                var accountTypeId = $('#accountyTypeId').val();
+                var personRow = '';
+                var accountType = '';
+                var studentClass = '';
+                if (accountTypeId == 1) {
+                    accountType = 'Student';
+                    // student
+                    var firstName = $('#studentFirstNameId').val();
+                    var lastName = $('#studentLastNameId').val();
+                    var birthdate = $('#studentBirthdayId').val();
+                    var phone = $('#studentPhoneId').val();
+                    var studentClassValue = $('#studentClassId').val();
+                    var email = $('#studentEmailId').val();
+                    var gender = $('input[name=gender]:checked').val();
+
+                    switch (studentClassValue) {
+                        case '1':
+                            studentClass = "Class A"
+                            break;
+                        case '2':
+                            studentClass = "Class B"
+                            break;
+                        case '3':
+                            studentClass = "Class C"
+                            break;
+                        default:
+                            break;
+                    }
+
+                    var hobbies = [];
+                    if ($('#Hobbies_1').is(':checked')) {
+                        hobbies.push($('#Hobbies_1').val());
+                    }
+                    if ($('#Hobbies_2').is(':checked')) {
+                        hobbies.push($('#Hobbies_2').val());
+                    }
+                    if ($('#Hobbies_3').is(':checked')) {
+                        hobbies.push($('#Hobbies_3').val());
+                    }
+                    if ($('#Hobbies_4').is(':checked')) {
+                        hobbies.push($('#Hobbies_4').val());
+                    }
+                    personRow = "<tr class='studentRowBackground'><td>" + accountType + "</td><td>" + firstName + " " + lastName + "</td><td>" + birthdate + "</td><td>" + phone + "</td><td>" + studentClass + "</td><td>" + email + "</td><td>" + gender + "</td><td>" + hobbies + "</td><td> - </td></tr>";
+                } else {
+                    accountType = 'Teacher';
+                    //teacher
+                    var teacherFirstName = $('#teacherFirstNameId').val();
+                    var teacherLastName = $('#teacherLastNameId').val();
+                    var teacherSp = $('#teacherSpecificationId').val();
+                    var teacherClass = $('#teacherClassId').val();
+                    personRow = "<tr class='teacherRowBackground'><td>" + accountType + "</td><td>" + teacherFirstName + " " + teacherLastName + "</td><td> - </td><td> - </td><td>" + teacherClass + "</td><td> - </td><td> - </td><td> - </td><td>" + teacherSp + "</td></tr>";
+                }
+                $('#tbodyId').append(personRow);
+            });
+
+
+        });
+    </script>
+
+    <style>
+        .studentRowBackground{
+            background-color: brown;
+            color: white;
+        }
+        .teacherRowBackground{
+            background-color: blueviolet;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <select id="accountyTypeId">
+        <option value="1" selected>Student</option>
+        <option value="2">Teacher</option>
+    </select>
+    <br>
+    <br>
+    <!-- Student Form -->
+    <div id="studentFormId">
+        <input type="text" id="studentFirstNameId" placeholder="Student First Name">
+        <input type="text" id="studentLastNameId" placeholder="Student Last Name">
+        <br>
+        <br>
+        <input type="date" id="studentBirthdayId">
+        <input type="tel" id="studentPhoneId">
+        <select id="studentClassId">
+            <option value="1">Class A</option>
+            <option value="2">Class B</option>
+            <option value="3">Class C</option>
+        </select>
+        <br>
+        <br>
+        <input type="email" id="studentEmailId" placeholder="Student Email">
+        <br>
+        <br>
+        <label for="">Gender:</label>
+        <input type="radio" name="gender" id="genderMaleId" value="male">Male
+        <input type="radio" name="gender" id="genderFemaleId" value="female">Female
+
+        <br>
+        <br>
+        <label for="">Hobbies</label>
+
+        <input type="checkbox" value="Sport" id="Hobbies_1">Sport
+        <input type="checkbox" value="Travel" id="Hobbies_2">Travel
+        <input type="checkbox" value="Reading" id="Hobbies_3">Reading
+        <input type="checkbox" value="Diving" id="Hobbies_4">Diving
+
+    </div>
+    <!-- Teacher Form -->
+    <div id="teacherFormId" hidden>
+        <input type="text" id="teacherFirstNameId" placeholder="Teacher First Name">
+        <input type="text" id="teacherLastNameId" placeholder="Teacher Last Name">
+        <br>
+        <br>
+        <select id="teacherSpecificationId">
+            <option value="1">Specification A</option>
+            <option value="2">Specification B</option>
+        </select>
+
+        <select id="teacherClassId">
+            <option value="1">Class A</option>
+            <option value="2">Class B</option>
+        </select>
+    </div>
+    <br>
+    <br>
+    <button id="savePersonBtnId">Save Person</button>
+
+
+    <h2>Datasheet</h2>
+
+    <table border="2">
+        <thead>
+            <th>Account Type</th>
+            <th>Full Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Class</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Hobbies</th>
+            <th>Specification</th>
+        </thead>
+        <tbody id="tbodyId">
+            <tr>
+                <td>Student</td>
+                <td>Fadel Sabbagh</td>
+                <td>25</td>
+                <td>0215549875</td>
+                <td>Class A</td>
+                <td>mfadelasabbagh@gmail.com</td>
+                <td>male</td>
+                <td>sport,reading</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

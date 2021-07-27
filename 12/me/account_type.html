@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+   <select id="accountType" onchange="mem(this)">
+      <option value="2">Student</option>
+      <option value="1" selected>Teacher</option>
+    </select>
+    <!-- Student Form -->
+    <form action="#" id="studentFormId" style="display: none">
+      <input type="text" placeholder="Student Name" />
+      <input type="date" placeholder="Student Age" />
+      <input type="Number" placeholder="Student Number" />
+    </form>
+    <!-- Teacher form -->
+    <form action="#" id="teacherFormId" >
+      <input type="text" placeholder="Teacher Name" />
+      <input type="date" placeholder="Teacher Birthdate" />
+      <select>
+        <option value="S">Science</option>
+        <option value="M">Math</option>
+      </select>
+    </form>
+    <script>
+        function mem(m) {
+            if(m.value==1){
+                document.getElementById("teacherFormId").style.display="block";
+                document.getElementById("studentFormId").style.display="none";
+            }
+              else{
+                document.getElementById("studentFormId").style.display="block";
+                document.getElementById("teacherFormId").style.display="none";
+            }
+        }
+     
+    </script>
+  </body>
+</html>

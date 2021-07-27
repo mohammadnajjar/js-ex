@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-3.1.1.min.js"></script>
+<style type="text/css">
+div {
+    height:100px;
+    width:100px;
+    display: inline-block;
+}
+#red {
+    background-color:#FF0000;
+}
+#blue {
+    background-color:#0000FF;
+}
+#yellow {
+    background-color:#E2BE22;
+}
+#green {
+    background-color:#008800;
+}
+</style>	
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('div').mouseenter(function () {
+            $(this).animate({ height: '+=10px' });
+        });
+        $('div').mouseleave(function () {
+            $(this).animate({ height: '-=10px' });
+        });
+        $('div').click(function () {
+            $(this).css('background-color', '#e6ccff');
+            //$(this).hide(1000);
+        });
+    });
+</script>
+</head>
+<body>
+    <div id="red"></div>
+    <div id="blue"></div>
+    <div id="yellow"></div>
+    <div id="green"></div>
+</body>
+</html>

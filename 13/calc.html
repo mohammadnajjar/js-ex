@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clac</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <input id="n1" type="text" placeholder="Number 1">
+    <p id="operator">OP</p>
+    <input id="n2"   type="text" placeholder="Number 2">
+    <button id="calcBtn" onclick="calc()">=</button>
+    <input id="calcResult" type="text" placeholder="Result">
+    <br>
+    <button onclick="getOp(this)" id="plusOp">+</button>
+    <button onclick="getOp(this)" id="minsOp">-</button>
+    <button onclick="getOp(this)" id="multiOp">*</button>
+    <button onclick="getOp(this)" id="divOp">/</button>
+    <button onclick="getOp(this)" id="subOp">%</button>
+
+    <script>
+        function calc(){
+            var n1 = document.getElementById('n1').value;
+            var n2 = document.getElementById('n2').value;
+            var Result ;
+            var operation = document.getElementById('operator').innerHTML ;
+
+            switch (operation) {
+                case '+':
+                    Result = add(n1,n2);
+                    break;
+                case '-':
+                    Result = mins(n1,n2);
+                    break;
+                default:
+                    alert('no operation found>>>');
+                    break;
+            }
+            document.getElementById('calcResult').value = Result;
+        }
+        function getOp(opBtn){
+            document.getElementById('operator').innerHTML = opBtn.innerHTML;
+        }
+
+        function add(x, y){
+            var z = eval(x) + eval(y);
+            return z;
+        }
+
+        function mins(x,y){
+            var z = x - y;
+            return z;
+        }
+        
+      
+
+    </script>
+</body>
+</html>

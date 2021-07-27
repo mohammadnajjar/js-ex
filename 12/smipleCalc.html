@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="firstNumber" placeholder="number a">
+    <input type="button" value="+" onclick="saveOperator(this)">
+    <input type="text" id="secondNumber" placeholder="number b">
+    <input type="button" value="=" onclick="calcResult()">
+    <input type="text" id="resultNumber" placeholder="Result">
+
+
+    <script>
+        var operator;
+        var firstNumber, secondNumber,result;
+        function saveOperator(obj){
+            operator = obj.value;
+        }
+
+        function calcResult(){
+            firstNumber  = document.getElementById('firstNumber').value;
+            secondNumber = document.getElementById('secondNumber').value;
+            if(operator == '+'){
+                result = plusNumber(firstNumber,secondNumber);
+            }
+            document.getElementById('resultNumber').value = result;
+        }
+
+        function plusNumber(x,y){
+            var result = Number(x) + Number(y);
+            return result;
+        }
+    </script>
+</body>
+</html>

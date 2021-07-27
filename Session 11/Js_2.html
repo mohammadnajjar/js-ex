@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="customer()">Customer</button>
+	<button onclick="employee()">Employee</button>
+
+	<form>
+		<input type="text" placeholder="Name">
+		<input type="text" placeholder="Age">
+		<select id="customerType">
+			<option value="1">C type 1</option>
+			<option value="2">C type 2</option>
+		</select>
+		<select id="employeeType">
+			<option value="1">E type 1</option>
+			<option value="2">E type 2</option>
+		</select>
+	</form>
+
+	<script>
+		function customer(){
+			document.getElementById('employeeType').style.display = 'none';
+			document.getElementById('customerType').style.display = 'block';
+		}
+		function employee(){
+			document.getElementById('employeeType').style.display = 'block';
+			document.getElementById('customerType').style.display = 'none';
+		}
+	</script>
+</body>
+</html>

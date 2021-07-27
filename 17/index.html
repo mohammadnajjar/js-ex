@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+	<!-- style included -->
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="lib/font-awsome/css/all.css">
+		<link rel="stylesheet" href="css/style.css">
+	<!-- end style included -->
+	
+	<!-- script included  -->
+		<script src="js/jquery-3.1.1.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.js"></script>
+	<!-- end script include -->
+	
+</head>
+<body>
+	<div class="container">
+		<!-- <div class="row">
+			<div class="col-6">
+				<input class="input-group" type="text" placeholder="First Name...">
+			</div>
+			<div class="col-6">
+				<input class="input-group" type="text" placeholder="Last Name...">
+			</div>
+		</div>
+		<div class="row">
+			<input class="input-group" type="date">
+		</div>
+		<div class="row">
+			<select id="" class="input-group">
+				<option value="1">Class A</option>
+				<option value="2">Class B</option>
+				<option value="3">Class C</option>
+			</select>
+		</div> -->
+		<div class="form-group">
+			<input type="hidden" id="stdIndentityId">
+			<label>First Name</label>
+			<input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputPassword1">Password</label>
+			<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputPassword1">Age</label>
+			<input type="date" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		  </div>
+		  <div class="form-group">
+			<label for="exampleFormControlSelect2">Example multiple select</label>
+			<select class="form-control" id="exampleFormControlSelect2">
+			  <option value="1">Class A</option>
+			  <option value="2">Class B</option>
+			  <option value="3">Class C</option>
+			</select>
+		  </div>
+		  <button type="submit" id="saveBtn" class="btn btn-primary">Submit</button>
+	</div>
+
+	<h1>Student Table</h1>
+	<div class="container">
+
+		<table class="table">
+			<thead>
+			  <tr>
+				<th scope="col">Student Name</th>
+				<th scope="col">Age</th>
+				<th scope="col">Studnet Class</th>
+				<th scope="col">Options</th>
+			  </tr>
+			</thead>
+			<tbody id="tableBody">
+			  
+			</tbody>
+		  </table>
+	</div>
+
+
+	<script>
+		var fullName, age, stdClass,stdId;
+
+		$(document).ready(function(){
+			$('.deleteBtn').click(function(){
+				$(this).parents('tr').remove();
+			});
+			$('.editBtn').click(function(){
+					editForm($(this));
+			});
+			$('#saveBtn').click(function(){
+				saveStudent();
+			});
+		});
+		
+		function saveStudent(){
+			var studentId = $('#stdIndentityId').val();
+			var firstName = $('#firstName').val();
+			if(studentId == ""){
+				alert('none');
+			}else{
+				console.log($('tr').find('#stdId_'+studentId));
+		
+			}
+		}
+		function editForm(obj){
+			fullName = obj.parents('tr').find('.name').text();
+			age = obj.parents('tr').find('.stdAge').text();
+			stdClass = obj.parents('tr').find('.stdClass').text();
+			stdId = obj.parents('tr').find('.stdId').text();
+			$('#stdIndentityId').val(stdId);
+		}
+		var students = {
+			'student':[{
+				'stdId' : 1,
+				'firstName' : 'Ahmed',
+				'lastName' : 'Ahmed',
+				'age' : '1/1/1993',
+				'studentClass' : 1
+			},
+			{
+				'stdId' : 2,
+				'firstName' : 'Mohammad',
+				'lastName' : 'Mohammad',
+				'age' : '1/1/1994',
+				'studentClass' : 2
+			},
+			{
+				'stdId' : 3,
+				'firstName' : 'Mahmoud',
+				'lastName' : 'Mahmoud',
+				'age' : '1/1/1995',
+				'studentClass' : 3
+			},
+			{
+				'stdId' : 4,
+				'firstName' : 'Dima',
+				'lastName' : 'Dima',
+				'age' : '1/1/1996',
+				'studentClass' : 2
+			},
+			{
+				'stdId' : 5,
+				'firstName' : 'Abd',
+				'lastName' : 'Abd',
+				'age' : '1/1/1996',
+				'studentClass' : 3
+			}]
+
+		};
+
+		var studentRows = '';
+		var studentCount = students.student.length;
+		var currentYear = new Date().getFullYear();
+
+		for(var i=0;i< studentCount ;i++){
+			var student = students.student[i];
+			var studentClass = '';
+			switch (student.studentClass) {
+				case 1:
+					studentClass = 'Class A'
+					break;
+				case 2:
+					studentClass = 'Class B'
+					break;
+				case 3:
+					studentClass = 'Class C'
+					break;
+			
+				default:
+					break;
+			}
+			studentRows += "<tr><td class='stdId' id='stdId_"+student.stdId +"' hidden>"+student.stdId+"</td><td class='name'>"+ student.firstName + " " + student.lastName +"</td><td class='stdAge'>"+student.age+"</td><td class='stdClass'>"+studentClass+"</td><td><a class='editBtn' href='#'><i class='fa fa-edit btn btn-success mr-1'></i></a><a href='#' class='deleteBtn'><i class='fa fa-trash btn btn-danger'></i></a></td></tr>";
+		}
+
+		$('#tableBody').append(studentRows);
+	</script>
+</body>
+</html>

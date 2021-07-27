@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="demo">JavaScript can hide HTML elements.</p>
+
+<button type="button" onclick="changeDemoText()">Click Me!</button>
+
+
+<select id="countryId" onChange="changeCountry()">
+	<option>Aleppo</option>
+	<option>Damas</option>
+	<option>Homs</option>
+</select>
+
+<p id="countryNameId">country</p>
+<script>
+	function changeDemoText(){
+		document.getElementById('demo').style.display='none';
+	}
+	
+	function changeCountry(){
+		document.getElementById('countryNameId').style.color = 'red';
+	}
+</script>
+</body>
+</html> 

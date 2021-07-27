@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title></title>
+		<script src="jquery-3.1.1.min.js"></script>    
+        <script>
+            // on load method
+           $(document).ready(function(){
+               $('#button1').click(function(){
+                    callTextFunction();
+               });
+
+               $('#button3').click(function(){
+                    alert($('#name').val());
+               });
+
+               $('#button4').click(function(){
+                    alert($('#google').attr('href'));
+               });
+
+
+           });
+
+           // functions
+           function callTextFunction(){
+                alert($('#p1').text());
+                alert($('#p1').html());
+           }
+        </script>
+	</head>
+	<body>
+        <p id="p1">This is some <b>bold</b> text in a paragraph.</p>
+        <button id="button1">Show Text</button>
+        <button id="button2">Show HTML</button>
+
+        <p>Name: <input type="text" id="name" name="name" ></p>      
+        <button id="button3">Show Value</button>
+
+        <p><a href="http://www.google.com" id="google">Google.com</a></p>
+        <button id="button4">Show href Value</button>
+	</body>
+</html>

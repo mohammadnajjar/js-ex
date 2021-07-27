@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <div>
+      <p id="para"style="background-color: #d94a38;width: 120px;height: 20px;padding: 40px; "onmouseleave="myFunction()"onmouseenter="mem()">
+        Mouse Over Me
+      </p>
+    </div>
+    <script>
+      function mem() {
+        document.getElementById("para").innerHTML = "Thank You";
+      }
+      function myFunction() {
+        document.getElementById("para").innerHTML = "Mouse Over Me";
+      }
+    </script>
+  </body>
+</html>

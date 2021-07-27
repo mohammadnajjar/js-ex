@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+    <button onclick="mem()">click me</button>
+</div>
+
+<script>
+    function mem() {
+      var para=document.createElement("p");
+      var text=document.createTextNode("this new");
+      para.appendChild(text);
+      var x=document.getElementById("div1");
+      x.appendChild(para);
+    }
+</script>
+
+</body>
+</html>

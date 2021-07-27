@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="number1" placeholder="N1">
+	<p id="operation">OP</p>
+	<input type="text" id="number2" placeholder="N2">
+	<button onclick="calcResult()">=</button>
+	<input type="text" id="result" placeholder="result">
+
+	<button onclick="getOperation(this)">+</button>
+	<button onclick="getOperation(this)">-</button>
+	<button onclick="getOperation(this)">*</button>
+	<button onclick="getOperation(this)">/</button>
+	<button onclick="getOperation(this)">%</button>
+
+
+	<script>
+		function getOperation(obj){
+			document.getElementById('operation').innerHTML = obj.innerHTML;
+		}
+		
+		function calcResult(){
+			var operation = document.getElementById('operation').innerHTML;
+			var Number1 = document.getElementById('number1').value;
+			var Number2 = document.getElementById('number2').value;
+			// if (operation == '+') {
+			// 	var Resule = eval(Number1)  + eval(Number2);
+			// }
+			// if(operation == '-'){
+			// 	var Resule = eval(Number1)  - eval(Number2);
+			// }
+			// if(operation == '*'){
+			// 	var Resule = eval(Number1)  * eval(Number2);
+			// }
+			// if(operation == '/'){
+			// 	var Resule = eval(Number1)  / eval(Number2);
+			// }else{
+			// 	var Resule = eval(Number1)  % eval(Number2);
+			// }
+
+			switch (operation) {
+				case '+':
+					var Resule = eval(Number1)  + eval(Number2);
+					break;
+				case '-':
+					var Resule = eval(Number1)  - eval(Number2);
+					break;
+				case '*':
+					var Resule = eval(Number1)  * eval(Number2);
+					break;
+				case '/':
+					var Resule = eval(Number1)  / eval(Number2);
+					break;
+				case '%':
+					var Resule = eval(Number1)  % eval(Number2);
+					break;
+				default:
+					alert('no operation selected :(');
+					break;
+			}
+
+			document.getElementById('result').value = Resule;
+		}
+	</script>
+</body>
+</html>

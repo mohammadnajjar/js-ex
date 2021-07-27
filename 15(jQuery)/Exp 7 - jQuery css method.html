@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title></title>
+		<script src="jquery-3.1.1.min.js"></script>
+        <style> 
+            .normal {
+                margin: 10px;
+                padding: 10px;
+                height: 100px;
+                width: 200px;
+                background-color: #cc66ff;
+                font-size: 20px;
+                border-radius: 5px;        
+            }           
+        </style>
+        <script>
+            $(document).ready(function () {
+                $('#div1').mouseenter(function () {
+                    $(this).css("background-color", "#e6b3ff");
+                });
+                $('#div1').mouseleave(function () {
+                    $(this).css("background-color", "#cc66ff");
+                });
+
+                $('#div2').hover(function () {
+                    $(this).css("background-color", "#e6b3ff");
+                },
+                function () {
+                    $(this).css("background-color", "#cc66ff");
+                });
+            });
+        </script>
+	</head>
+	<body>
+        <div id="div1" class="normal">Mouse over this div to see the effect.</div>
+        <div id="div2" class="normal">Mouse over this div to see the effect.</div>
+	</body>
+</html>

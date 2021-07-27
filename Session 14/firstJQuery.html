@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script src="jquery-3.1.1.js"></script>   
+<script>
+    // on load
+$(document).ready(
+    function(){
+
+        $('#btn1').click(function(){
+            // alert($('p').text());
+            // alert($('p').html());
+            var cars = ['BMW','W'];
+            cars.push($('demoInput').val());
+            $('#demo').text(cars.toString());
+            
+        });
+
+        $('#btn2').click(function(){
+            alert($('#demoInput').val());
+        });
+
+        var cars = ['BMW','W'];
+        $('#demo').text(cars.toString());
+
+        $('#btn3').click(function(){
+            $('#demoInput').hide();
+        });
+
+
+    }
+
+);
+
+
+//functions
+    
+</script> 
+
+</head>
+<body>
+    
+    <input type="text" id="demoInput">
+
+    <p id="demo">Hello to <b>JQuery</b></p>
+    <button id="btn1">show p content</button>
+    <button id="btn2">show input</button>
+    <button id="btn3">hide</button>
+
+
+</body>
+</html>

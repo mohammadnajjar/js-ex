@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btnId').click(function(){
+                var firstName = $('#firstInput').val();
+                var lastName = $('#lastInput').val();
+                var fullName = firstName + " " + lastName;
+                var studentRow = "<tr><td>" + fullName + "</td></tr>";
+                $('#tbodyId').append(studentRow);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input id="firstInput" type="text" placeholder="first name...">
+    <input id="lastInput" type="text" placeholder="last name">
+    <button id="btnId">Add Student</button>
+    <h1>Student Table</h1>
+    <table border="5">
+        <thead>
+            <th>full Name</th>
+        </thead>
+        <tbody id="tbodyId">
+            <tr>
+                <td>Student NO.1</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>

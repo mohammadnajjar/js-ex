@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title></title>
+		<script src="jquery-3.1.1.min.js"></script>     
+        <script>
+            $(document).ready(function () {
+                $('#button1').click(function() {
+                    $('#p1').text("Hello world!");
+                });
+                $('#button2').click(function(){
+                    $('#p2').html("<b>Hello world!</b>");
+                });
+                $('#button3').click(function(){
+                    $('#input1').attr('placeholder',"sdfsdfsdfb");
+                });
+            });
+        </script>
+	</head>
+	<body>
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+        <p>Input field: <input type="text" id="input1" placeholder="dfdfdfdf"></p>
+
+        <button id="button1">Set Text</button>
+        <button id="button2">Set HTML</button>
+        <button id="button3">Set Value</button>
+    </body>
+</html>

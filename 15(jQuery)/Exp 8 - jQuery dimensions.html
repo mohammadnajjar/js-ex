@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('button').click(function(){
+        var txt = "";
+        txt += "Width of div: " + $('#div1').width() + "<br/>";
+        txt += "Height of div: " + $('#div1').height();
+        $('#div1').html(txt);
+    });
+	$('#div2').height(100);
+	$('#div2').width(200);
+});
+</script>
+<style>
+#div1
+{
+    padding: 10px;
+    margin: 3px;
+    height: 200px;
+    width: 200px;
+    background-color: #cc66ff;
+    border: 1px solid #550080;
+}
+
+#div2
+{
+    padding: 10px;
+    margin: 3px;
+    background-color: #ccffff;
+    border: 1px solid #004d4d;
+}
+</style>
+</head>
+<body>
+
+<div id="div1"></div>
+<br/>
+<button>Display dimensions</button>
+<br/><br/>
+<div id="div2">test</div>
+<br/><br/>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<p id="myText">Hello ..</p>	
+	<button onclick="changeColor()">Click Me color!</button>
+	<button onclick="chnageText()">Click Me content!</button>
+	<img id="myImage" src="1.jpg" alt="" width="50%">
+	<button onclick="changeImage()">Click to change image</button>
+
+	<script>
+		function changeColor(){
+			document.getElementById('myText').style.color = 'blue';
+		}
+
+		function chnageText(){
+			document.getElementById('myText').innerHTML = 'Welcome';
+		}
+		function changeImage(){
+			document.getElementById('myImage').src = '3.jpg';
+		}
+	</script>
+</body>
+</html>
